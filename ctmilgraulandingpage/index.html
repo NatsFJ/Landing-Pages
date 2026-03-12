@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CT Mil Graus - Academia em Monte Siao, MG | Musculacao, Treino e Dieta</title>
+
+<!-- SEO -->
+<meta name="description" content="CT Mil Graus é a academia de musculação em Monte Sião, MG. Treino personalizado, dieta inclusa e professores qualificados. Planos a partir de R$130/mês. Alma forte não habita corpo fraco!">
+<meta name="keywords" content="CT Mil Graus, academia Monte Sião, musculação Monte Sião, academia MG, treino personalizado Monte Sião, dieta e treino Monte Sião">
+<meta name="robots" content="index, follow">
+<meta name="author" content="CT Mil Graus">
+<link rel="canonical" href="https://ctmilgraus.com.br">
+
+<!-- Open Graph (WhatsApp, Facebook) -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ctmilgraus.com.br">
+<meta property="og:title" content="CT Mil Graus — Academia em Monte Sião, MG">
+<meta property="og:description" content="Musculação, treino personalizado e dieta inclusa. A academia mais quente de Monte Sião. Alma forte não habita corpo fraco!">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Schema Local Business (Google entende que é negócio físico) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": "CT Mil Graus",
+  "description": "Academia de musculação em Monte Sião com treino personalizado e dieta inclusa.",
+  "url": "https://ctmilgraus.com.br",
+  "telephone": "+55-35-99152-5813",
+  "email": "ctmilgraus@gmail.com",
+  "slogan": "Alma forte nao habita corpo fraco",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua 29 de Marco, 89",
+    "addressLocality": "Monte Siao",
+    "addressRegion": "MG",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "06:00",
+      "closes": "23:00"
+    }
+  ],
+  "priceRange": "R$130 - R$170"
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,700;0,900;1,700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --black:#080808;
+  --black2:#111;
+  --black3:#181818;
+  --red:#D42020;
+  --red2:#FF2C2C;
+  --red3:#FF5B3A;
+  --orange:#FF7A1A;
+  --ember:#FFA040;
+  --white:#F8F2EE;
+  --muted:#8A7070;
+  --line:rgba(212,32,32,0.18);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Barlow Condensed',sans-serif;
+  background:var(--black);color:var(--white);
+  overflow-x:hidden;
+}
+
+/* ── FOGO ANIMADO (canvas) ── */
+#fire-canvas{
+  position:fixed;bottom:0;left:0;right:0;
+  height:220px;pointer-events:none;z-index:0;
+  opacity:.55;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 6%;height:66px;
+  background:rgba(8,8,8,0.97);
+  border-bottom:2px solid var(--red);
+  animation:slideD .5s ease both;
+}
+@keyframes slideD{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+
+.logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.9rem;letter-spacing:.06em;
+  line-height:1;
+  background:linear-gradient(135deg,var(--red2),var(--orange),var(--ember));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+  filter:drop-shadow(0 0 12px rgba(255,44,44,0.5));
+}
+
+.nav-links{display:flex;gap:28px}
+.nav-links a{
+  text-decoration:none;color:var(--muted);
+  font-size:.95rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  transition:color .2s;
+}
+.nav-links a:hover{color:var(--red2)}
+
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:all .22s;
+}
+.btn-fire{
+  background:linear-gradient(135deg,var(--red),var(--red3));
+  color:#fff;padding:11px 28px;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  font-size:.9rem;
+  box-shadow:0 0 20px rgba(212,32,32,0.4);
+}
+.btn-fire:hover{
+  background:linear-gradient(135deg,var(--red2),var(--orange));
+  box-shadow:0 0 36px rgba(255,44,44,0.6);
+  transform:translateY(-2px);
+}
+.btn-outline{
+  background:transparent;color:var(--red2);
+  border:2px solid var(--red2);padding:11px 28px;
+  clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);
+  font-size:.9rem;
+}
+.btn-outline:hover{background:rgba(212,32,32,0.1)}
+
+/* ── HERO ── */
+#hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:90px 6% 120px;
+  position:relative;overflow:hidden;
+}
+
+/* fundo com textura de brasa */
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 80%, rgba(212,32,32,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(255,90,40,0.06) 0%, transparent 50%),
+    var(--black);
+}
+.hero-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+
+/* linhas diagonais de fundo */
+.hero-diag{
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    -55deg,
+    transparent,transparent 40px,
+    rgba(212,32,32,0.025) 40px,rgba(212,32,32,0.025) 41px
+  );
+}
+
+.hero-inner{position:relative;z-index:2;max-width:820px}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(212,32,32,0.15);
+  border:1px solid rgba(212,32,32,0.4);
+  color:var(--red2);
+  padding:7px 18px;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeU .6s .1s ease both;
+}
+.badge-fire{animation:flicker 1.5s ease-in-out infinite}
+@keyframes flicker{0%,100%{opacity:1;transform:scale(1)}40%{opacity:.7;transform:scale(1.15)}70%{opacity:.9;transform:scale(.95)}}
+
+.hero-inner h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,12vw,11rem);
+  line-height:.88;letter-spacing:.01em;
+  margin-bottom:12px;
+  animation:fadeU .6s .2s ease both;
+}
+.h1-normal{display:block;color:var(--white)}
+.h1-fire{
+  display:block;
+  background:linear-gradient(180deg,var(--ember) 0%,var(--orange) 35%,var(--red2) 65%,var(--red) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(255,80,20,0.6));
+  animation:fadeU .6s .25s ease both, fireGlow 3s ease-in-out infinite;
+}
+@keyframes fireGlow{
+  0%,100%{filter:drop-shadow(0 0 30px rgba(255,80,20,0.6))}
+  50%{filter:drop-shadow(0 0 55px rgba(255,120,10,0.9))}
+}
+.h1-outline{
+  display:block;
+  -webkit-text-stroke:3px var(--red);
+  color:transparent;
+  animation:fadeU .6s .3s ease both;
+}
+
+.hero-sub{
+  font-size:1.25rem;font-weight:400;
+  color:rgba(248,242,238,0.55);
+  max-width:520px;margin:20px 0 36px;
+  line-height:1.55;
+  animation:fadeU .6s .35s ease both;
+}
+.hero-sub strong{color:var(--white);font-weight:700}
+
+.hero-ctas{
+  display:flex;gap:14px;flex-wrap:wrap;
+  animation:fadeU .6s .45s ease both;
+}
+
+.hero-stats{
+  display:flex;gap:0;margin-top:56px;
+  border-top:1px solid var(--line);padding-top:32px;
+  animation:fadeU .6s .55s ease both;
+}
+.hstat{
+  padding:0 40px 0 0;margin:0 40px 0 0;
+  border-right:1px solid var(--line);
+}
+.hstat:last-child{border:none;margin:0;padding:0}
+.hstat strong{
+  display:block;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;line-height:1;
+  background:linear-gradient(135deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hstat span{font-size:.92rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+
+@keyframes fadeU{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ── PROMO STRIP ── */
+.promo{
+  background:linear-gradient(90deg,var(--red),var(--red3),var(--red));
+  padding:14px 6%;
+  display:flex;align-items:center;justify-content:center;
+  gap:12px;
+  font-size:.95rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  position:relative;z-index:2;
+  animation:fadeU .5s .6s ease both;
+}
+.promo-icon{animation:flicker 1.2s ease-in-out infinite}
+
+/* ── PLANOS ── */
+#planos{padding:96px 6%;position:relative;z-index:2}
+
+.sec-head{margin-bottom:56px}
+.sec-over{
+  display:flex;align-items:center;gap:12px;margin-bottom:10px;
+}
+.sec-over-line{width:32px;height:2px;background:var(--red)}
+.sec-over span{
+  font-size:.92rem;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--red2);
+}
+.sec-head h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,5vw,4.5rem);
+  letter-spacing:.02em;line-height:1;
+}
+.sec-head h2 em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line)}
+.plan{
+  background:var(--black2);
+  padding:36px 28px;position:relative;
+  transition:background .25s;
+}
+.plan:hover{background:var(--black3)}
+.plan.hot{
+  background:var(--black3);
+  border-top:3px solid var(--red2);
+}
+.plan-tag{
+  position:absolute;top:0;right:24px;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  color:#fff;font-size:.65rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 12px;
+  clip-path:polygon(0 0,100% 0,100% 100%,6px 100%);
+}
+.plan-lbl{
+  font-size:.88rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:10px;
+}
+.plan-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2.2rem;letter-spacing:.04em;margin-bottom:12px;
+}
+.plan.hot .plan-name{
+  background:linear-gradient(90deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.plan-price{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:4rem;line-height:1;
+}
+.plan-price sup{font-size:1.8rem;vertical-align:super}
+.plan-price sub{font-size:1.5rem;vertical-align:bottom}
+.plan-obs{font-size:.92rem;color:var(--muted);margin:6px 0 24px}
+
+.plan-list{list-style:none;margin-bottom:28px}
+.plan-list li{
+  display:flex;align-items:center;gap:10px;
+  padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:1.05rem;
+}
+.plan-list li.on{color:var(--white)}
+.plan-list li.off{color:#444}
+.plan-list li .ck{color:var(--red2);font-weight:900;flex-shrink:0}
+.plan-list li .xx{color:#333;flex-shrink:0}
+
+/* ── TABS PLANOS ── */
+.tab-btn{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.88rem;padding:10px 24px;
+  background:transparent;color:var(--muted);
+  border:2px solid rgba(212,32,32,0.25);cursor:pointer;
+  transition:all .2s;
+}
+.tab-btn.active{
+  background:linear-gradient(135deg,var(--red),var(--red3));
+  color:#fff;border-color:transparent;
+  box-shadow:0 0 20px rgba(212,32,32,0.35);
+}
+.tab-btn:hover:not(.active){color:var(--red2);border-color:var(--red2)}
+
+/* ── CARROSSEL ── */
+.carousel-wrapper{
+  position:relative;display:flex;align-items:center;gap:12px;
+}
+.carousel-track-outer{
+  overflow:hidden;flex:1;
+}
+.carousel-track{
+  display:flex;gap:20px;
+  transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.plan-slide{
+  min-width:calc(33.333% - 14px);
+  background:var(--black2);
+  padding:36px 28px;position:relative;
+  border-top:3px solid transparent;
+  transition:background .25s, border-color .25s;
+  flex-shrink:0;
+}
+.plan-slide:hover{background:var(--black3)}
+.plan-slide.hot{
+  background:var(--black3);
+  border-top-color:var(--red2);
+}
+
+.carousel-arrow{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--black2);border:2px solid var(--line);
+  color:var(--white);font-size:1.1rem;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .2s;
+}
+.carousel-arrow:hover{background:var(--red);border-color:var(--red);box-shadow:0 0 16px rgba(212,32,32,0.4)}
+
+.carousel-dots{
+  display:flex;gap:8px;justify-content:center;margin-top:24px;
+}
+.carousel-dots span{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(212,32,32,0.3);cursor:pointer;transition:all .2s;
+}
+.carousel-dots span.active{background:var(--red2);width:24px;border-radius:4px}
+
+@media(max-width:900px){
+  .plan-slide{min-width:calc(50% - 10px)}
+  .plan-name{font-size:1.6rem}
+}
+@media(max-width:600px){
+  .plan-slide{min-width:calc(100% - 0px);width:100%}
+  .carousel-arrow{display:none}
+  .plan-name{font-size:1.4rem;white-space:normal;word-break:break-word}
+  .plan-lbl{font-size:.82rem}
+  .carousel-track-outer{overflow:hidden;width:100%}
+  .carousel-track{width:100%}
+  #planos{padding:60px 4%}
+}
+
+#modalidades{
+  padding:96px 6%;
+  background:var(--black2);
+  position:relative;z-index:2;
+}
+
+.mod-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:var(--line);
+}
+.mod{
+  background:var(--black2);padding:28px 22px;
+  border-bottom:3px solid transparent;
+  transition:all .25s;cursor:default;
+}
+.mod:hover{
+  background:var(--black3);
+  border-bottom-color:var(--red2);
+}
+.mod-icon{font-size:2rem;display:block;margin-bottom:12px}
+.mod h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.5rem;letter-spacing:.05em;margin-bottom:6px;
+}
+.mod p{font-size:.97rem;color:var(--muted);line-height:1.55}
+.mod-horario{
+  margin-top:12px;font-size:.7rem;font-weight:700;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--red2);
+}
+
+/* ── RESULTADOS ── */
+#resultados{padding:96px 6%;position:relative;z-index:2}
+
+.results-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.result-card{
+  background:var(--black2);
+  border:1px solid var(--line);
+  padding:28px;
+  position:relative;overflow:hidden;
+  transition:border-color .25s;
+}
+.result-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s;
+}
+.result-card:hover{border-color:rgba(212,32,32,0.4)}
+.result-card:hover::before{transform:scaleX(1)}
+
+.rc-stars{color:var(--red2);font-size:.9rem;margin-bottom:14px}
+.rc-text{font-size:1.02rem;color:rgba(248,242,238,0.65);line-height:1.65;margin-bottom:20px}
+.rc-author strong{display:block;font-size:1rem;color:var(--white);font-weight:700}
+.rc-author span{font-size:.88rem;color:var(--muted)}
+.rc-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(212,32,32,0.12);color:var(--red2);
+  font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;margin-top:6px;
+  border:1px solid rgba(212,32,32,0.25);
+}
+
+/* ── CTA FINAL ── */
+#cta{
+  padding:100px 6%;
+  background:var(--black2);
+  position:relative;overflow:hidden;z-index:2;
+  text-align:center;
+}
+.cta-fire-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 50% 100%,rgba(212,32,32,0.2),transparent 60%);
+}
+#cta h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3rem,7vw,6.5rem);
+  line-height:.9;letter-spacing:.02em;
+  margin-bottom:16px;position:relative;
+}
+.cta-line1{display:block;color:var(--white)}
+.cta-line2{
+  display:block;
+  background:linear-gradient(180deg,var(--ember),var(--red2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 24px rgba(255,80,20,0.5));
+}
+.cta-line3{
+  display:block;
+  -webkit-text-stroke:2px var(--red);
+  color:transparent;
+}
+#cta p{
+  font-size:1.1rem;color:rgba(248,242,238,0.5);
+  max-width:460px;margin:0 auto 40px;font-weight:400;
+  position:relative;
+}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ── FOOTER ── */
+footer{
+  padding:30px 6%;
+  background:var(--black);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+  border-top:2px solid var(--red);
+  position:relative;z-index:2;
+}
+.footer-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  background:linear-gradient(135deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 8px rgba(255,44,44,0.4));
+}
+footer p{font-size:.92rem;color:var(--muted)}
+.f-links{display:flex;gap:22px}
+.f-links a{color:var(--muted);text-decoration:none;font-size:.92rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.f-links a:hover{color:var(--red2)}
+
+/* ── WHATSAPP ── */
+.waf{
+  position:fixed;bottom:28px;right:28px;z-index:300;
+  width:56px;height:56px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;text-decoration:none;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4);
+  transition:transform .2s;
+  animation:pop .5s 1.2s ease both;
+}
+.waf:hover{transform:scale(1.12)}
+@keyframes pop{from{opacity:0;transform:scale(0.3)}to{opacity:1;transform:scale(1)}}
+
+/* ── DIFERENCIAIS ── */
+#diferenciais{
+  padding:96px 6%;background:var(--black2);
+  position:relative;z-index:2;
+}
+.dif-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+  background:var(--line);margin-top:56px;
+}
+.dif-card{
+  background:var(--black2);padding:36px 28px;
+  position:relative;overflow:hidden;
+  transition:background .3s;cursor:default;
+}
+.dif-card:hover{background:var(--black3)}
+.dif-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--red),var(--orange));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s;
+}
+.dif-card:hover::after{transform:scaleX(1)}
+.dif-icon{
+  width:56px;height:56px;border-radius:12px;
+  background:rgba(212,32,32,0.12);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;margin-bottom:20px;
+}
+.dif-card h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.4rem;letter-spacing:.04em;margin-bottom:8px;
+  color:var(--white);
+}
+.dif-card p{font-size:1rem;color:var(--muted);line-height:1.6;font-weight:400}
+
+/* ── COMO FUNCIONA ── */
+#como{padding:96px 6%;position:relative;z-index:2}
+.steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;margin-top:56px;
+}
+.steps::before{
+  content:'';position:absolute;
+  top:36px;left:10%;right:10%;height:2px;
+  background:linear-gradient(90deg,var(--red),var(--orange),var(--red));
+  z-index:0;
+}
+.step{
+  position:relative;z-index:1;
+  text-align:center;padding:0 20px;
+}
+.step-num{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--black);border:2px solid var(--red);
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;
+  font-family:'Bebas Neue',sans-serif;font-size:1.8rem;
+  color:var(--red2);
+  position:relative;
+  transition:all .3s;
+  box-shadow:0 0 0 0 rgba(212,32,32,0);
+}
+.step:hover .step-num{
+  background:var(--red);color:#fff;
+  box-shadow:0 0 28px rgba(212,32,32,0.5);
+}
+.step-icon{font-size:1.6rem;display:block;margin-bottom:6px}
+.step h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.25rem;letter-spacing:.04em;margin-bottom:8px;color:var(--white);
+}
+.step p{font-size:.97rem;color:var(--muted);line-height:1.55}
+
+/* ── MUSCULAÇÃO DESTAQUE ── */
+#musculacao{
+  padding:96px 6%;background:var(--black2);
+  position:relative;z-index:2;overflow:hidden;
+}
+.musc-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.musc-left h2{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);
+  letter-spacing:.02em;line-height:1;margin-bottom:20px;
+}
+.musc-left h2 em{
+  font-style:normal;
+  background:linear-gradient(90deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.musc-left p{
+  font-size:1rem;color:var(--muted);line-height:1.7;margin-bottom:28px;font-weight:300;
+}
+.musc-list{list-style:none;margin-bottom:32px}
+.musc-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05);
+  font-size:.95rem;
+}
+.musc-list li .ck{
+  color:var(--red2);font-size:1rem;font-weight:900;flex-shrink:0;margin-top:1px;
+}
+.musc-list li span{color:var(--white)}
+.musc-list li small{display:block;color:var(--muted);font-size:.92rem;font-weight:300}
+
+.musc-right{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.musc-stat-card{
+  background:var(--black3);border:1px solid var(--line);
+  padding:24px 20px;border-radius:4px;
+  text-align:center;
+  transition:border-color .3s,box-shadow .3s;
+}
+.musc-stat-card:hover{
+  border-color:var(--red);
+  box-shadow:0 0 20px rgba(212,32,32,0.15);
+}
+.musc-stat-card .big{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:3rem;line-height:1;
+  background:linear-gradient(135deg,var(--red2),var(--orange));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  display:block;margin-bottom:6px;
+}
+.musc-stat-card span{font-size:.9rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.musc-stat-card.dark{
+  background:linear-gradient(135deg,var(--red) 0%,#8b0000 100%);
+  border-color:transparent;grid-column:span 2;
+  display:flex;align-items:center;justify-content:space-between;
+  text-align:left;padding:20px 24px;
+}
+.musc-stat-card.dark .big{color:#fff;-webkit-text-fill-color:#fff;font-size:2rem}
+.musc-stat-card.dark span{color:rgba(255,255,255,0.7)}
+
+/* ── FAQ ── */
+#faq{padding:96px 6%;position:relative;z-index:2}
+.faq-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:16px;margin-top:56px;
+}
+.faq-item{
+  background:var(--black2);border:1px solid var(--line);
+  padding:0;overflow:hidden;
+  transition:border-color .25s;
+}
+.faq-item:hover{border-color:rgba(212,32,32,0.4)}
+.faq-q{
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  cursor:pointer;gap:16px;
+  font-size:1rem;font-weight:700;color:var(--white);
+  letter-spacing:.02em;
+  user-select:none;
+}
+.faq-q .arr{
+  color:var(--red2);font-size:1.4rem;flex-shrink:0;
+  transition:transform .3s;font-weight:300;line-height:1;
+}
+.faq-item.open .faq-q .arr{transform:rotate(45deg)}
+.faq-a{
+  display:none;
+  font-size:.97rem;color:var(--muted);line-height:1.65;font-weight:300;
+  padding:0 24px 20px;
+  border-top:1px solid rgba(212,32,32,0.1);
+}
+.faq-item.open .faq-a{display:block}
+
+/* ── LOCALIZAÇÃO ── */
+#localizacao{
+  padding:96px 6%;background:var(--black2);
+  position:relative;z-index:2;
+}
+.loc-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:48px;align-items:center;margin-top:56px;
+}
+.loc-info{}
+.loc-info h3{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;letter-spacing:.04em;margin-bottom:24px;
+}
+.loc-detail{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:20px;
+}
+.loc-detail .loc-icon{
+  width:40px;height:40px;border-radius:8px;
+  background:rgba(212,32,32,0.12);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.loc-detail strong{display:block;font-size:.92rem;color:var(--white);margin-bottom:2px}
+.loc-detail span{font-size:.97rem;color:var(--muted)}
+
+.loc-map{
+  background:var(--black3);border:1px solid var(--line);
+  border-radius:4px;overflow:hidden;height:300px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+}
+.loc-map iframe{width:100%;height:100%;border:none;filter:grayscale(1) invert(1) brightness(0.7) contrast(1.2)}
+
+@media(max-width:960px){
+  .dif-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .musc-inner{grid-template-columns:1fr}
+  .musc-right{display:none}
+  .faq-grid{grid-template-columns:1fr}
+  .loc-inner{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-inner h1{font-size:5.5rem}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+  .hstat{border:none;padding:0;margin:0}
+  .plans{grid-template-columns:1fr}
+  .mod-grid{grid-template-columns:1fr 1fr}
+  .results-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- FOGO ANIMADO -->
+<canvas id="fire-canvas"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">CT MIL GRAUS</div>
+  <div class="nav-links">
+    <a href="#planos">Planos</a>
+    <a href="#como">Como funciona</a>
+    <a href="#faq">FAQ</a>
+    <a href="#localizacao">Localização</a>
+  </div>
+  <a href="#cta" class="btn btn-fire">🔥 Matricule-se</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-diag"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="badge-fire">🔥</span> Centro de Treinamento Mil Graus — Monte Sião, MG</div>
+    <h1>
+      <span class="h1-normal">TREINE</span>
+      <span class="h1-fire">MIL GRAU</span>
+      <span class="h1-outline">SEJA FORTE</span>
+    </h1>
+    <p class="hero-sub">
+      <strong>Alma forte não habita corpo fraco.</strong><br>
+      Estrutura completa, professores de elite e a energia que só o CT Mil Graus tem.
+    </p>
+    <div class="hero-ctas">
+      <a href="#cta" class="btn btn-fire">🔥 Garantir minha vaga</a>
+      <a href="#planos" class="btn btn-outline">Ver planos →</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>200+</strong><span>Alunos ativos</span></div>
+      <div class="hstat"><strong>5.0★</strong><span>Avaliação Google</span></div>
+      <div class="hstat"><strong>6h–23h</strong><span>Funcionamento</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO -->
+<div class="promo">
+  <span class="promo-icon">🔥</span>
+  Matrícula GRÁTIS essa semana + 1ª semana sem pagar
+  <span class="promo-icon">🔥</span>
+</div>
+
+<!-- PLANOS -->
+<section id="planos">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Planos</span></div>
+    <h2>ESCOLHA SEU <em>PLANO</em></h2>
+    <p style="color:var(--muted);font-size:1rem;margin-top:8px;font-weight:400">Todos os planos incluem treino personalizado e dieta. <strong style="color:var(--white)">Condições especiais no pagamento à vista (dinheiro ou PIX).</strong></p>
+  </div>
+
+  <!-- TABS -->
+  <div style="display:flex;gap:10px;margin-bottom:40px;flex-wrap:wrap">
+    <button class="tab-btn active" onclick="switchTab('parcelado')" id="tab-parcelado">💳 Parcelado</button>
+    <button class="tab-btn" onclick="switchTab('avista')" id="tab-avista">🔥 À Vista (PIX/Dinheiro)</button>
+  </div>
+
+  <!-- CARROSSEL PARCELADO -->
+  <div id="tab-content-parcelado" class="tab-content">
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow left" onclick="slide('parcelado',-1)">&#8592;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carousel-parcelado">
+
+          <!-- MENSAL -->
+          <div class="plan-slide">
+            <div class="plan-lbl">Plano Mensal</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div class="plan-price"><sup>R$</sup>170<sub>/mês</sub></div>
+            <div class="plan-obs">Renovação mensal · Sem fidelidade</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Sem fidelidade</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+Mensal+R%24170%2C00.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- 3 MESES -->
+          <div class="plan-slide">
+            <div class="plan-lbl">Plano 3 Meses</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div class="plan-price"><sup>R$</sup>160<sub>/mês</sub></div>
+            <div class="plan-obs">3x de R$160,00 · Total: R$480,00</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Economia vs. mensal</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+3+Meses+%283x+R%24160%2C00%29.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- 6 MESES -->
+          <div class="plan-slide">
+            <div class="plan-lbl">Plano 6 Meses</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div class="plan-price"><sup>R$</sup>150<sub>/mês</sub></div>
+            <div class="plan-obs">6x de R$150,00 · Total: R$900,00</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> R$20/mês mais barato que mensal</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+6+Meses+%286x+R%24150%2C00%29.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- 8 MESES -->
+          <div class="plan-slide">
+            <div class="plan-lbl">Plano 8 Meses</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div class="plan-price"><sup>R$</sup>140<sub>/mês</sub></div>
+            <div class="plan-obs">8x de R$140,00 · Total: R$1.120,00</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> R$30/mês mais barato que mensal</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+8+Meses+%288x+R%24140%2C00%29.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- ANUAL -->
+          <div class="plan-slide hot">
+            <div class="plan-tag">🔥 Melhor custo-benefício</div>
+            <div class="plan-lbl">Plano Anual</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div class="plan-price"><sup>R$</sup>130<sub>/mês</sub></div>
+            <div class="plan-obs">12x de R$130,00 · Total: R$1.560,00</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Maior economia — R$40/mês a menos</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+Anual+%2812x+R%24130%2C00%29.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-fire" style="width:100%;justify-content:center">🔥 Quero esse plano</a>
+          </div>
+
+          <!-- FAMILIAR -->
+          <div class="plan-slide">
+            <div class="plan-lbl">Plano Familiar</div>
+            <div class="plan-name">3 Pessoas · Academia + Treino + Dieta</div>
+            <div class="plan-price" style="font-size:3rem"><sup>R$</sup>130<sub>/pessoa</sub></div>
+            <div class="plan-obs">8x de R$130,00 por pessoa · 3 pessoas</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso para 3 pessoas</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado para cada um</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa para cada um</li>
+              <li class="on"><span class="ck">✓</span> Ideal para família ou amigos</li>
+              <li class="on"><span class="ck">✓</span> Professores qualificados</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+Familiar+%283+pessoas+8x+R%24130%2C00+cada%29.+Pode+me+passar+mais+informacoes%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-arrow right" onclick="slide('parcelado',1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="dots-parcelado"></div>
+  </div>
+
+  <!-- CARROSSEL À VISTA -->
+  <div id="tab-content-avista" class="tab-content" style="display:none">
+    <div style="background:rgba(212,32,32,0.1);border:1px solid rgba(212,32,32,0.35);padding:14px 22px;margin-bottom:32px;display:inline-flex;align-items:center;gap:10px;font-size:.9rem;font-weight:700">
+      <span>🔥</span> Pagando o plano inteiro em dinheiro ou PIX — desconto especial garantido!
+    </div>
+    <div class="carousel-wrapper">
+      <button class="carousel-arrow left" onclick="slide('avista',-1)">&#8592;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carousel-avista">
+
+          <!-- 3 MESES À VISTA -->
+          <div class="plan-slide">
+            <div class="plan-lbl">3 Meses · À Vista</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div style="margin-bottom:8px">
+              <span style="font-size:1rem;color:var(--muted);text-decoration:line-through">De R$480,00</span>
+              <span style="background:var(--red);color:#fff;font-size:.85rem;font-weight:700;padding:3px 10px;margin-left:8px">-R$60</span>
+            </div>
+            <div class="plan-price"><sup>R$</sup>420<sub> à vista</sub></div>
+            <div class="plan-obs">Economia de R$60,00 pagando à vista</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Desconto de R$60,00</li>
+              <li class="on"><span class="ck">✓</span> Pagamento em dinheiro ou PIX</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+3+Meses+a+vista+por+R%24420%2C00+%28PIX+ou+dinheiro%29.+Pode+confirmar+essa+promocao%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- 6 MESES À VISTA -->
+          <div class="plan-slide hot">
+            <div class="plan-tag">🔥 Mais popular</div>
+            <div class="plan-lbl">6 Meses · À Vista</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div style="margin-bottom:8px">
+              <span style="font-size:1rem;color:var(--muted);text-decoration:line-through">De R$900,00</span>
+              <span style="background:var(--red);color:#fff;font-size:.85rem;font-weight:700;padding:3px 10px;margin-left:8px">-R$120</span>
+            </div>
+            <div class="plan-price"><sup>R$</sup>780<sub> à vista</sub></div>
+            <div class="plan-obs">Economia de R$120,00 pagando à vista</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Desconto de R$120,00</li>
+              <li class="on"><span class="ck">✓</span> Pagamento em dinheiro ou PIX</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+6+Meses+a+vista+por+R%24780%2C00+%28PIX+ou+dinheiro%29.+Pode+confirmar+essa+promocao%3F+%F0%9F%94%A5" target="_blank" class="btn btn-fire" style="width:100%;justify-content:center">🔥 Quero esse plano</a>
+          </div>
+
+          <!-- 8 MESES À VISTA -->
+          <div class="plan-slide">
+            <div class="plan-lbl">8 Meses · À Vista</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div style="margin-bottom:8px">
+              <span style="font-size:1rem;color:var(--muted);text-decoration:line-through">De R$1.120,00</span>
+              <span style="background:var(--red);color:#fff;font-size:.85rem;font-weight:700;padding:3px 10px;margin-left:8px">-R$160</span>
+            </div>
+            <div class="plan-price"><sup>R$</sup>960<sub> à vista</sub></div>
+            <div class="plan-obs">Economia de R$160,00 pagando à vista</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Desconto de R$160,00</li>
+              <li class="on"><span class="ck">✓</span> Pagamento em dinheiro ou PIX</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+8+Meses+a+vista+por+R%24960%2C00+%28PIX+ou+dinheiro%29.+Pode+confirmar+essa+promocao%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+          <!-- 1 ANO À VISTA -->
+          <div class="plan-slide">
+            <div class="plan-lbl">1 Ano · À Vista</div>
+            <div class="plan-name">Academia + Treino + Dieta</div>
+            <div style="margin-bottom:8px">
+              <span style="font-size:1rem;color:var(--muted);text-decoration:line-through">De R$1.560,00</span>
+              <span style="background:var(--red);color:#fff;font-size:.85rem;font-weight:700;padding:3px 10px;margin-left:8px">-R$180</span>
+            </div>
+            <div class="plan-price"><sup>R$</sup>1.320<sub> à vista</sub></div>
+            <div class="plan-obs">Economia de R$180,00 pagando à vista</div>
+            <ul class="plan-list">
+              <li class="on"><span class="ck">✓</span> Acesso ilimitado à academia</li>
+              <li class="on"><span class="ck">✓</span> Treino personalizado</li>
+              <li class="on"><span class="ck">✓</span> Dieta inclusa</li>
+              <li class="on"><span class="ck">✓</span> Maior desconto à vista</li>
+              <li class="on"><span class="ck">✓</span> Pagamento em dinheiro ou PIX</li>
+            </ul>
+            <a href="https://wa.me/5535991525813?text=Ola%21+Tenho+interesse+no+Plano+Anual+a+vista+por+R%241.320%2C00+%28PIX+ou+dinheiro%29.+Pode+confirmar+essa+promocao%3F+%F0%9F%94%A5" target="_blank" class="btn btn-outline" style="width:100%;justify-content:center">Quero esse plano</a>
+          </div>
+
+        </div>
+      </div>
+      <button class="carousel-arrow right" onclick="slide('avista',1)">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="dots-avista"></div>
+  </div>
+
+  <p style="font-size:.82rem;color:var(--muted);margin-top:28px">* Condições especiais para pagamento de planos à vista. Consulte um de nossos representantes.</p>
+</section>
+
+
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Por que a CT Mil Graus</span></div>
+    <h2>TUDO QUE VOCÊ <em>PRECISA</em></h2>
+  </div>
+  <div class="dif-grid">
+    <div class="dif-card">
+      <div class="dif-icon">🏋️</div>
+      <h3>Equipamentos Modernos</h3>
+      <p>Aparelhos de musculação de alta qualidade, bem conservados e em quantidade suficiente pra você nunca esperar.</p>
+    </div>
+    <div class="dif-card">
+      <div class="dif-icon">👨‍🏫</div>
+      <h3>Professores Qualificados</h3>
+      <p>Nossa equipe é formada por profissionais de educação física, prontos pra montar e acompanhar seu treino.</p>
+    </div>
+    <div class="dif-card">
+      <div class="dif-icon">🥗</div>
+      <h3>Dieta Inclusa</h3>
+      <p>Nos planos CT Mil Graus, a orientação alimentar vem junto. Treino e dieta alinhados para resultados mais rápidos.</p>
+    </div>
+    <div class="dif-card">
+      <div class="dif-icon">📍</div>
+      <h3>No Centro de Monte Sião</h3>
+      <p>Localização privilegiada, fácil acesso, sem desculpa pra faltar. A academia mais perto de você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section id="como">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Processo</span></div>
+    <h2>COMO <em>COMEÇAR</em></h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <span class="step-icon">💬</span>
+      <h3>Fale com a gente</h3>
+      <p>Mande uma mensagem pelo WhatsApp ou ligue. Atendemos na hora e tiramos todas as suas dúvidas.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <span class="step-icon">📋</span>
+      <h3>Avaliação Física</h3>
+      <p>Nosso professor faz uma avaliação completa do seu condicionamento e define seus objetivos.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <span class="step-icon">📝</span>
+      <h3>Treino + Dieta</h3>
+      <p>Recebe uma planilha de treino e orientação alimentar personalizados para o seu perfil.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <span class="step-icon">🔥</span>
+      <h3>Resultados Reais</h3>
+      <p>Segue o plano, evolui semana a semana e transforma seu corpo com consistência e foco.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUSCULAÇÃO EM DESTAQUE -->
+<section id="musculacao">
+  <div class="musc-inner">
+    <div class="musc-left">
+      <div class="sec-over" style="margin-bottom:14px"><div class="sec-over-line"></div><span>Musculação</span></div>
+      <h2>TREINO DE <em>RESULTADO</em><br>DE VERDADE</h2>
+      <p>Na CT Mil Graus, musculação não é só levantar peso. É método, acompanhamento e evolução constante. Cada treino montado sob medida pra seus objetivos.</p>
+      <ul class="musc-list">
+        <li>
+          <span class="ck">✓</span>
+          <div><span>Treino 100% personalizado</span><small>Montado pelo professor conforme seu objetivo: emagrecimento, hipertrofia ou condicionamento</small></div>
+        </li>
+        <li>
+          <span class="ck">✓</span>
+          <div><span>Acompanhamento de evolução</span><small>Reavaliações periódicas para ajustar sua planilha conforme você evolui</small></div>
+        </li>
+        <li>
+          <span class="ck">✓</span>
+          <div><span>Ambiente motivador</span><small>Comunidade de alunos que se apoiam e se desafiam todo dia</small></div>
+        </li>
+        <li>
+          <span class="ck">✓</span>
+          <div><span>Dieta integrada ao treino</span><small>Orientação alimentar inclusa para potencializar seus resultados</small></div>
+        </li>
+      </ul>
+      <a href="https://wa.me/5535991525813" class="btn btn-fire" target="_blank">🔥 Quero começar agora</a>
+    </div>
+    <div class="musc-right">
+      <div class="musc-stat-card">
+        <span class="big">3x</span>
+        <span>Mais resultado com treino + dieta</span>
+      </div>
+      <div class="musc-stat-card">
+        <span class="big">100%</span>
+        <span>Treino personalizado</span>
+      </div>
+      <div class="musc-stat-card">
+        <span class="big">200+</span>
+        <span>Alunos transformados</span>
+      </div>
+      <div class="musc-stat-card dark">
+        <div>
+          <span class="big">Seg–Sáb</span>
+          <span>6h da manhã às 23h</span>
+        </div>
+        <span style="font-size:2.5rem">⏰</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Dúvidas</span></div>
+    <h2>PERGUNTAS <em>FREQUENTES</em></h2>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item">
+      <div class="faq-q">Preciso ter experiência para começar? <span class="arr">+</span></div>
+      <div class="faq-a">Não! Atendemos do iniciante absoluto ao atleta experiente. Nosso professor adapta o treino ao seu nível e te ensina a executar cada exercício corretamente.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">A dieta é mesmo inclusa no plano? <span class="arr">+</span></div>
+      <div class="faq-a">Sim! Em todos os planos CT Mil Graus a orientação alimentar está inclusa. Você recebe um cardápio personalizado junto com sua planilha de treino.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Posso cancelar o plano se precisar? <span class="arr">+</span></div>
+      <div class="faq-a">Fale diretamente com a nossa equipe pelo WhatsApp para verificar as condições de cancelamento do seu plano. Trabalhamos sempre com transparência.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Tem estacionamento? <span class="arr">+</span></div>
+      <div class="faq-a">Estamos no centro de Monte Sião, na Rua 29 de Março, 89 — CEP 37.580-000. Há opções de estacionamento nas redondezas e fácil acesso a pé para quem mora no centro.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Funciona aos sábados? <span class="arr">+</span></div>
+      <div class="faq-a">Sim! Funcionamos de segunda a sábado, das 6h às 23h. Consulte o horário específico dos domingos e feriados diretamente com nossa equipe.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Tem aula experimental gratuita? <span class="arr">+</span></div>
+      <div class="faq-a">Sim! Entre em contato pelo WhatsApp e agende sua aula experimental sem custo e sem compromisso. Venha conhecer a CT Mil Graus na prática.</div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO -->
+<section id="localizacao">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Onde Estamos</span></div>
+    <h2>NO CORAÇÃO DE <em>MONTE SIÃO</em></h2>
+  </div>
+  <div class="loc-inner">
+    <div class="loc-info">
+      <h3>CT MIL GRAUS</h3>
+      <div class="loc-detail">
+        <div class="loc-icon">📍</div>
+        <div>
+          <strong>Endereço</strong>
+          <span>Rua 29 de Março, 89 — Centro<br>Monte Sião, MG — CEP 37.580-000</span>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">📞</div>
+        <div>
+          <strong>Telefone / WhatsApp</strong>
+          <span>(35) 99152-5813</span>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">✉️</div>
+        <div>
+          <strong>E-mail</strong>
+          <span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d1b2a5bcb8bdb6a3b0a4a291b6bcb0b8bdffb2bebc">[email&#160;protected]</a></span>
+        </div>
+      </div>
+      <div class="loc-detail">
+        <div class="loc-icon">🕐</div>
+        <div>
+          <strong>Horário de Funcionamento</strong>
+          <span>Segunda a Sábado: 6h às 23h</span>
+        </div>
+      </div>
+      <a href="https://wa.me/5535991525813" class="btn btn-fire" target="_blank" style="margin-top:8px">💬 Falar no WhatsApp</a>
+    </div>
+    <div class="loc-map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3748.2!2d-46.5271!3d-22.4389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c89b1e1e1e1e1f%3A0x0!2sRua%2029%20de%20Mar%C3%A7o%2C%2089%20-%20Centro%2C%20Monte%20Si%C3%A3o%20-%20MG%2C%2037580-000!5e0!3m2!1spt-BR!2sbr!4v1234567890"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTADOS -->
+<section id="resultados">
+  <div class="sec-head">
+    <div class="sec-over"><div class="sec-over-line"></div><span>Resultados Reais</span></div>
+    <h2>QUEM TREINA <em>COMPROVA</em></h2>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">"Equipamentos novos e colaboradores atenciosos. Ambiente muito agradável para treinar!"</p>
+      <div class="rc-author">
+        <strong>S.</strong>
+        <span>Avaliação no Google</span>
+        <div class="rc-badge">⭐ 5.0 Google</div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">"Lugar excelente que só tende a crescer. Recomendo demais para quem quer treinar de verdade!"</p>
+      <div class="rc-author">
+        <strong>Aluno CT Mil Graus</strong>
+        <span>Avaliação no Google</span>
+        <div class="rc-badge">⭐ 5.0 Google</div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="rc-stars">★★★★★</div>
+      <p class="rc-text">"Melhor academia de Monte Sião, sem dúvida. Professores que realmente entendem do assunto. Valeu cada centavo."</p>
+      <div class="rc-author">
+        <strong>Rodrigo Almeida</strong>
+        <span>Aluno da CT Mil Graus</span>
+        <div class="rc-badge">💪 Aluno satisfeito</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="cta-fire-bg"></div>
+  <h2>
+    <span class="cta-line1">PARE DE</span>
+    <span class="cta-line2">ESPERAR.</span>
+    <span class="cta-line3">COMECE AGORA.</span>
+  </h2>
+  <p>Matrícula grátis essa semana. Primeira aula experimental sem compromisso. Monte Sião, venha treinar!</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/5535991525813" class="btn btn-fire" target="_blank" style="font-size:1rem;padding:14px 36px">🔥 WhatsApp: (35) 99152-5813</a>
+    <a href="tel:+5535991525813" class="btn btn-outline" target="_blank" style="font-size:1rem;padding:14px 36px">📞 Ligar agora</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">CT MIL GRAUS</div>
+  <div style="text-align:center">
+    <p style="margin-bottom:4px">Rua 29 de Março, 89 — Centro, Monte Sião, MG — CEP 37.580-000</p>
+    <p>(35) 99152-5813 · <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="80e3f4ede9ece7f2e1f5f3c0e7ede1e9ecaee3efed">[email&#160;protected]</a></p>
+    <p style="margin-top:10px;font-size:.85rem;color:#555">Desenvolvido por <a href="https://deft-tanuki-44b29f.netlify.app/" target="_blank" style="color:var(--muted);text-decoration:none;font-weight:700;transition:color .2s" onmouseover="this.style.color='#FF2C2C'" onmouseout="this.style.color=''">@natec systems</a></p>
+  </div>
+  <div class="f-links">
+    <a href="#">Instagram</a>
+    <a href="https://wa.me/5535991525813" target="_blank">WhatsApp</a>
+  </div>
+</footer>
+
+<a href="https://wa.me/5535991525813" class="waf">💬</a>
+
+<!-- FOGO ANIMADO EM CANVAS -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+(function(){
+  const canvas = document.getElementById('fire-canvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, particles = [];
+
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = 220;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  function rand(a, b){ return a + Math.random() * (b - a) }
+
+  function Particle(){
+    this.reset();
+  }
+  Particle.prototype.reset = function(){
+    this.x = rand(0, W);
+    this.y = H + rand(0, 30);
+    this.vx = rand(-0.6, 0.6);
+    this.vy = rand(-2.5, -1.2);
+    this.life = 0;
+    this.maxLife = rand(60, 130);
+    this.size = rand(18, 48);
+  };
+  Particle.prototype.update = function(){
+    this.x += this.vx + Math.sin(this.life * 0.08) * 0.5;
+    this.y += this.vy;
+    this.life++;
+    this.vx += rand(-0.05, 0.05);
+    if(this.life >= this.maxLife) this.reset();
+  };
+  Particle.prototype.draw = function(){
+    const t = this.life / this.maxLife;
+    const alpha = Math.sin(t * Math.PI) * 0.75;
+    const size = this.size * (1 - t * 0.5);
+    const gradient = ctx.createRadialGradient(
+      this.x, this.y, 0,
+      this.x, this.y, size
+    );
+    // core: white-yellow → orange → red → transparent
+    if(t < 0.3){
+      gradient.addColorStop(0,   `rgba(255,255,180,${alpha})`);
+      gradient.addColorStop(0.3, `rgba(255,160,20,${alpha * 0.9})`);
+      gradient.addColorStop(0.7, `rgba(220,40,10,${alpha * 0.5})`);
+      gradient.addColorStop(1,   `rgba(100,0,0,0)`);
+    } else {
+      gradient.addColorStop(0,   `rgba(255,120,10,${alpha * 0.7})`);
+      gradient.addColorStop(0.5, `rgba(180,20,0,${alpha * 0.4})`);
+      gradient.addColorStop(1,   `rgba(60,0,0,0)`);
+    }
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+  };
+
+  // spawn particles
+  for(let i = 0; i < 90; i++){
+    const p = new Particle();
+    p.life = rand(0, p.maxLife); // stagger
+    particles.push(p);
+  }
+
+  function loop(){
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => { p.update(); p.draw(); });
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
+
+
+<!-- MODAL LEAD -->
+<div id="lead-modal" style="display:none;position:fixed;inset:0;z-index:1000;align-items:center;justify-content:center;">
+  <div id="modal-overlay" style="position:absolute;inset:0;background:rgba(0,0,0,0.85);backdrop-filter:blur(6px)"></div>
+  <div style="position:relative;background:#111;border:1px solid rgba(212,32,32,0.4);border-top:3px solid #FF2C2C;padding:40px;width:90%;max-width:480px;z-index:1;animation:fadeU .3s ease both">
+    <button id="modal-close" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#8A7070;font-size:1.4rem;cursor:pointer;line-height:1">x</button>
+    <div id="modal-form-view">
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:.75rem;letter-spacing:.2em;color:#FF2C2C;margin-bottom:8px">CT MIL GRAUS</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.04em;margin-bottom:6px">GARANTIR MINHA VAGA</h2>
+      <p id="modal-plan-label" style="font-size:.88rem;color:#8A7070;margin-bottom:28px">Preencha seus dados e entraremos em contato</p>
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <label style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A7070;display:block;margin-bottom:6px">Nome completo *</label>
+          <input id="input-nome" type="text" placeholder="Seu nome" style="width:100%;background:#181818;border:1px solid rgba(212,32,32,0.25);color:#F8F2EE;padding:12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;outline:none;transition:border .2s" onfocus="this.style.borderColor='#FF2C2C'" onblur="this.style.borderColor='rgba(212,32,32,0.25)'">
+        </div>
+        <div>
+          <label style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A7070;display:block;margin-bottom:6px">WhatsApp *</label>
+          <input id="input-tel" type="tel" placeholder="(35) 99999-9999" style="width:100%;background:#181818;border:1px solid rgba(212,32,32,0.25);color:#F8F2EE;padding:12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;outline:none;transition:border .2s" onfocus="this.style.borderColor='#FF2C2C'" onblur="this.style.borderColor='rgba(212,32,32,0.25)'">
+        </div>
+        <div>
+          <label style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A7070;display:block;margin-bottom:6px">E-mail</label>
+          <input id="input-email" type="email" placeholder="seu@email.com (opcional)" style="width:100%;background:#181818;border:1px solid rgba(212,32,32,0.25);color:#F8F2EE;padding:12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;outline:none;transition:border .2s" onfocus="this.style.borderColor='#FF2C2C'" onblur="this.style.borderColor='rgba(212,32,32,0.25)'">
+        </div>
+      </div>
+      <p id="modal-error" style="color:#FF2C2C;font-size:.82rem;margin-top:12px;display:none">Preencha nome e WhatsApp para continuar.</p>
+      <button id="modal-submit" onclick="submitLead()" style="margin-top:20px;width:100%;background:linear-gradient(135deg,#D42020,#FF5B3A);color:#fff;border:none;padding:15px;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;clip-path:polygon(10px 0%,100% 0%,calc(100% - 10px) 100%,0% 100%);transition:all .2s">
+        CONFIRMAR INTERESSE
+      </button>
+      <p style="text-align:center;font-size:.75rem;color:#8A7070;margin-top:12px">Entraremos em contato pelo WhatsApp em ate 24h</p>
+    </div>
+    <div id="modal-success-view" style="display:none;text-align:center;padding:20px 0">
+      <div style="font-size:4rem;margin-bottom:16px">&#128293;</div>
+      <h2 style="font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:.04em;margin-bottom:8px">INTERESSE RECEBIDO!</h2>
+      <p style="font-size:.95rem;color:#8A7070;margin-bottom:24px">Nossa equipe vai entrar em contato pelo WhatsApp em breve. Prepare-se para treinar MIL GRAU!</p>
+      <a href="https://wa.me/5535991525813" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 28px;text-decoration:none;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.9rem">
+        Falar no WhatsApp agora
+      </a>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+// ============================================================
+// CONFIGURACAO EMAILJS — siga os passos:
+// 1. Crie conta gratis em emailjs.com
+// 2. Em "Email Services" conecte seu Gmail (ctmilgraus@gmail.com)
+//    e copie o SERVICE ID abaixo
+// 3. Em "Email Templates" crie um template com as variaveis:
+//    {{nome}}, {{telefone}}, {{email}}, {{plano}}
+//    e copie o TEMPLATE ID abaixo
+// 4. Em "Account > API Keys" copie sua PUBLIC KEY abaixo
+// ============================================================
+var EMAILJS_SERVICE_ID  = 'COLE_SEU_SERVICE_ID'
+var EMAILJS_TEMPLATE_ID = 'COLE_SEU_TEMPLATE_ID'
+var EMAILJS_PUBLIC_KEY  = 'COLE_SUA_PUBLIC_KEY'
+// ============================================================
+
+emailjs.init(EMAILJS_PUBLIC_KEY)
+
+var planoSelecionado = ''
+
+document.querySelectorAll('.btn-plano').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    planoSelecionado = btn.dataset.plano
+    document.getElementById('modal-plan-label').textContent = 'Plano selecionado: ' + planoSelecionado
+    openModal()
+  })
+})
+
+function openModal(){
+  var modal = document.getElementById('lead-modal')
+  modal.style.display = 'flex'
+  document.body.style.overflow = 'hidden'
+  document.getElementById('modal-form-view').style.display = 'block'
+  document.getElementById('modal-success-view').style.display = 'none'
+  document.getElementById('modal-error').style.display = 'none'
+  document.getElementById('input-nome').value = ''
+  document.getElementById('input-tel').value = ''
+  document.getElementById('input-email').value = ''
+  document.getElementById('modal-submit').textContent = 'CONFIRMAR INTERESSE'
+  document.getElementById('modal-submit').disabled = false
+}
+
+function closeModal(){
+  document.getElementById('lead-modal').style.display = 'none'
+  document.body.style.overflow = ''
+}
+
+document.getElementById('modal-close').addEventListener('click', closeModal)
+document.getElementById('modal-overlay').addEventListener('click', closeModal)
+
+async function submitLead(){
+  var nome  = document.getElementById('input-nome').value.trim()
+  var tel   = document.getElementById('input-tel').value.trim()
+  var email = document.getElementById('input-email').value.trim()
+  var erro  = document.getElementById('modal-error')
+
+  if(!nome || !tel){
+    erro.textContent = 'Preencha nome e WhatsApp para continuar.'
+    erro.style.display = 'block'
+    return
+  }
+
+  var btn = document.getElementById('modal-submit')
+  btn.textContent = 'Enviando...'
+  btn.disabled = true
+  erro.style.display = 'none'
+
+  var templateParams = {
+    nome:     nome,
+    telefone: tel,
+    email:    email || 'Nao informado',
+    plano:    planoSelecionado,
+    data:     new Date().toLocaleString('pt-BR')
+  }
+
+  emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+    .then(function(){
+      document.getElementById('modal-form-view').style.display = 'none'
+      document.getElementById('modal-success-view').style.display = 'block'
+    })
+    .catch(function(err){
+      console.error(err)
+      btn.textContent = 'CONFIRMAR INTERESSE'
+      btn.disabled = false
+      erro.textContent = 'Erro ao enviar. Tente pelo WhatsApp.'
+      erro.style.display = 'block'
+    })
+}
+
+// Mascara telefone
+document.getElementById('input-tel').addEventListener('input', function(){
+  var v = this.value.replace(/\D/g,'').slice(0,11)
+  if(v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7)
+  else if(v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2)
+  else if(v.length > 0) v = '(' + v
+  this.value = v
+})
+</script>
+
+<script>
+// ── TABS + CARROSSEL DE PLANOS ──
+var carousels = {
+  parcelado: { index: 0, perView: 3 },
+  avista:    { index: 0, perView: 3 }
+};
+
+function getPerView(){
+  if(window.innerWidth <= 600) return 1;
+  if(window.innerWidth <= 900) return 2;
+  return 3;
+}
+
+function initCarousel(id){
+  var track = document.getElementById('carousel-' + id);
+  var slides = track.querySelectorAll('.plan-slide');
+  var dotsEl = document.getElementById('dots-' + id);
+  var c = carousels[id];
+  c.perView = getPerView();
+  var total = slides.length;
+  var maxIdx = Math.max(0, total - c.perView);
+
+  // Dots
+  dotsEl.innerHTML = '';
+  for(var i = 0; i <= maxIdx; i++){
+    var dot = document.createElement('span');
+    if(i === c.index) dot.classList.add('active');
+    (function(idx){ dot.addEventListener('click', function(){ goTo(id, idx); }); })(i);
+    dotsEl.appendChild(dot);
+  }
+}
+
+function goTo(id, idx){
+  var track = document.getElementById('carousel-' + id);
+  var slides = track.querySelectorAll('.plan-slide');
+  var c = carousels[id];
+  c.perView = getPerView();
+  var maxIdx = Math.max(0, slides.length - c.perView);
+  c.index = Math.max(0, Math.min(idx, maxIdx));
+
+  var slideW = slides[0].offsetWidth + 20;
+  track.style.transform = 'translateX(-' + (c.index * slideW) + 'px)';
+
+  var dots = document.querySelectorAll('#dots-' + id + ' span');
+  dots.forEach(function(d,i){ d.classList.toggle('active', i === c.index); });
+}
+
+function slide(id, dir){
+  goTo(id, carousels[id].index + dir);
+}
+
+function switchTab(tab){
+  ['parcelado','avista'].forEach(function(t){
+    document.getElementById('tab-content-' + t).style.display = t === tab ? 'block' : 'none';
+    document.getElementById('tab-' + t).classList.toggle('active', t === tab);
+  });
+  goTo(tab, 0);
+}
+
+window.addEventListener('resize', function(){
+  ['parcelado','avista'].forEach(function(id){
+    carousels[id].perView = getPerView();
+    goTo(id, carousels[id].index);
+    initCarousel(id);
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function(){
+  initCarousel('parcelado');
+  initCarousel('avista');
+});
+</script>
+
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click', function(){
+    var item = q.par
