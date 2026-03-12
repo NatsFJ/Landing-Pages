@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cristina Piva · Consultora Mary Kay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:      #c8526a;
+      --rose-dark: #8f2d42;
+      --rose-pale: #f5dde4;
+      --gold:      #c9a86c;
+      --cream:     #fdf6f0;
+      --dark:      #1a0f13;
+      --mid:       #5a3344;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body:    'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 999; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      opacity: .4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 5%;
+      backdrop-filter: blur(16px) saturate(1.6);
+      background: rgba(253,246,240,.82);
+      border-bottom: 1px solid rgba(200,82,106,.12);
+      transition: box-shadow .3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 30px rgba(143,45,66,.12); }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 600; letter-spacing: .04em;
+      color: var(--rose-dark); text-decoration: none;
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .85rem; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--mid);
+      text-decoration: none; position: relative; transition: color .3s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0; height: 1px;
+      background: var(--rose); transform: scaleX(0); transition: transform .3s;
+    }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--rose); color: #fff; border: none;
+      padding: .55rem 1.4rem; border-radius: 50px;
+      font-size: .82rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+      cursor: pointer; transition: background .3s, transform .2s, box-shadow .3s;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: var(--rose-dark); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(200,82,106,.35); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--mid); border-radius: 2px; transition: .3s; }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr; align-items: center;
+      padding: 8rem 5% 4rem;
+      gap: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -15%; right: -8%; width: 65vw; height: 65vw; max-width: 700px; max-height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, #f5c6d0 0%, #f0e0e7 45%, transparent 70%);
+      z-index: 0;
+    }
+    .hero-text { position: relative; z-index: 1; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .75rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp .8s .2s forwards;
+    }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--rose); }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.6rem);
+      font-weight: 300; line-height: 1.1;
+      color: var(--dark); margin-bottom: 1.2rem;
+      opacity: 0; animation: fadeUp .9s .4s forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--rose); }
+    .hero-title strong { font-weight: 600; display: block; }
+    .hero-sub {
+      font-size: 1rem; color: var(--mid); max-width: 440px; line-height: 1.75;
+      margin-bottom: 2.4rem;
+      opacity: 0; animation: fadeUp .9s .6s forwards;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp .9s .8s forwards;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      color: #fff; padding: .85rem 2.2rem; border-radius: 50px;
+      font-size: .88rem; font-weight: 500; letter-spacing: .04em;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: transform .25s, box-shadow .3s;
+      box-shadow: 0 4px 22px rgba(200,82,106,.3);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,82,106,.4); }
+    .btn-outline {
+      background: transparent; color: var(--rose); padding: .85rem 2rem;
+      border: 1.5px solid var(--rose); border-radius: 50px;
+      font-size: .88rem; font-weight: 500; letter-spacing: .04em;
+      text-decoration: none; cursor: pointer;
+      transition: background .3s, color .3s;
+    }
+    .btn-outline:hover { background: var(--rose); color: #fff; }
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3rem;
+      opacity: 0; animation: fadeUp .9s 1s forwards;
+    }
+    .stat-item h3 {
+      font-family: var(--font-display);
+      font-size: 2.2rem; font-weight: 600; color: var(--rose-dark);
+    }
+    .stat-item p { font-size: .78rem; color: var(--mid); letter-spacing: .04em; text-transform: uppercase; }
+
+    /* Hero image side */
+    .hero-visual {
+      position: relative; z-index: 1;
+      display: flex; justify-content: center; align-items: center;
+      opacity: 0; animation: fadeLeft .9s .5s forwards;
+    }
+    .hero-img-wrap {
+      position: relative; width: min(420px, 90%);
+    }
+    .hero-img-wrap::before {
+      content: '';
+      position: absolute; bottom: -20px; left: -20px;
+      width: 100%; height: 100%;
+      border: 2px solid var(--gold); border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+      z-index: -1; animation: morphBorder 6s ease-in-out infinite alternate;
+    }
+    @keyframes morphBorder {
+      from { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+      to   { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+    }
+    .hero-avatar {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover; border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+      animation: morphImg 6s ease-in-out infinite alternate;
+      box-shadow: 0 20px 60px rgba(143,45,66,.22);
+    }
+    @keyframes morphImg {
+      from { border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%; }
+      to   { border-radius: 60% 40% 40% 60% / 60% 60% 40% 40%; }
+    }
+    /* Placeholder quando não há foto */
+    .hero-avatar-placeholder {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(145deg, #f2c4ce 0%, #e8a0b0 50%, #d97a90 100%);
+      border-radius: 40% 60% 60% 40% / 40% 40% 60% 60%;
+      animation: morphImg 6s ease-in-out infinite alternate;
+      box-shadow: 0 20px 60px rgba(143,45,66,.22);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 1rem;
+    }
+    .hero-avatar-placeholder svg { width: 90px; opacity: .5; }
+    .hero-avatar-placeholder span { font-family: var(--font-display); font-size: 1.2rem; color: rgba(255,255,255,.7); }
+    .badge-floating {
+      position: absolute; bottom: 10%; right: -5%;
+      background: #fff; border-radius: 16px;
+      padding: .9rem 1.2rem; box-shadow: 0 8px 30px rgba(143,45,66,.18);
+      display: flex; align-items: center; gap: .7rem;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    .badge-floating .badge-icon { font-size: 1.6rem; }
+    .badge-floating .badge-text { font-size: .72rem; }
+    .badge-floating .badge-text strong { display: block; font-size: .92rem; color: var(--rose-dark); }
+
+    /* ─── SECTION HELPERS ─── */
+    section { padding: 6rem 5%; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .72rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--rose); margin-bottom: 1rem;
+    }
+    .section-label::before { content: ''; display: block; width: 22px; height: 1px; background: var(--rose); }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300; color: var(--dark); line-height: 1.2;
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+
+    /* ─── MARQUEE STRIP ─── */
+    .marquee-strip {
+      background: linear-gradient(90deg, var(--rose-dark), var(--rose));
+      color: #fff; overflow: hidden; padding: .9rem 0;
+    }
+    .marquee-track {
+      display: flex; gap: 0; white-space: nowrap;
+      animation: marquee 22s linear infinite;
+    }
+    .marquee-track span {
+      font-size: .78rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+      padding: 0 2.5rem;
+    }
+    .marquee-track span::before { content: '✦'; margin-right: 2.5rem; opacity: .6; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ─── ABOUT ─── */
+    .about {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-visual { position: relative; }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .about-card {
+      border-radius: 20px; overflow: hidden;
+      background: linear-gradient(135deg, var(--rose-pale), #fff);
+      padding: 1.8rem; position: relative;
+    }
+    .about-card:first-child { grid-column: span 2; }
+    .about-card .card-num {
+      font-family: var(--font-display); font-size: 3.5rem; font-weight: 600;
+      color: var(--rose-pale); position: absolute; top: .5rem; right: 1rem; line-height: 1;
+    }
+    .about-card h4 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: .4rem; color: var(--dark); }
+    .about-card p { font-size: .85rem; color: var(--mid); line-height: 1.6; }
+    .about-text .section-title { margin-bottom: 1.4rem; }
+    .about-text p { color: var(--mid); margin-bottom: 1rem; line-height: 1.8; }
+    .about-text .signature {
+      font-family: var(--font-display); font-style: italic;
+      font-size: 1.8rem; color: var(--rose); margin-top: 1.8rem;
+    }
+
+    /* ─── PRODUCTS ─── */
+    .products { background: var(--dark); color: #fff; }
+    .products .section-label { color: var(--gold); }
+    .products .section-label::before { background: var(--gold); }
+    .products .section-title { color: #fff; }
+    .products .section-title em { color: var(--gold); }
+    .products-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem; }
+    .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .product-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px; overflow: hidden;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      cursor: pointer;
+    }
+    .product-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,.4); border-color: rgba(201,168,108,.3); }
+    .product-img-wrap {
+      padding: 1.8rem 1.8rem 1rem;
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #1a1a2e, #2a1e35);
+    }
+    .product-img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: rgba(255,255,255,.07);
+      border: 3px solid rgba(201,168,108,.35);
+      padding: .8rem;
+      box-sizing: border-box;
+      box-shadow: 0 6px 24px rgba(0,0,0,.35);
+    }
+    .product-body { padding: 1.4rem; }
+    .product-tag { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: .5rem; }
+    .product-name { font-family: var(--font-display); font-size: 1.25rem; color: #fff; margin-bottom: .5rem; }
+    .product-desc { font-size: .82rem; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 1rem; }
+    .product-footer { display: flex; justify-content: space-between; align-items: center; }
+    .product-price { font-family: var(--font-display); font-size: 1.4rem; color: var(--gold); }
+    .product-btn {
+      background: rgba(201,168,108,.2); color: var(--gold);
+      border: 1px solid rgba(201,168,108,.3);
+      padding: .4rem .9rem; border-radius: 50px;
+      font-size: .75rem; cursor: pointer; transition: background .3s;
+      text-decoration: none;
+    }
+    .product-btn:hover { background: rgba(201,168,108,.35); }
+
+    /* ─── SERVICES ─── */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .service-card {
+      background: #fff; border-radius: 20px;
+      padding: 2rem; border: 1px solid rgba(200,82,106,.1);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(143,45,66,.12); }
+    .service-icon { font-size: 2.4rem; margin-bottom: 1rem; }
+    .service-card h3 { font-family: var(--font-display); font-size: 1.3rem; margin-bottom: .6rem; color: var(--dark); }
+    .service-card p { font-size: .85rem; color: var(--mid); line-height: 1.7; }
+    .service-card .service-link {
+      display: inline-flex; align-items: center; gap: .4rem;
+      margin-top: 1.2rem; font-size: .8rem; color: var(--rose);
+      text-decoration: none; font-weight: 500; letter-spacing: .04em;
+      transition: gap .2s;
+    }
+    .service-card:hover .service-link { gap: .7rem; }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials { background: var(--rose-pale); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
+    .testi-card {
+      background: #fff; border-radius: 20px; padding: 2rem;
+      box-shadow: 0 4px 20px rgba(143,45,66,.07);
+      position: relative;
+    }
+    .testi-card::before {
+      content: '\201C';
+      position: absolute; top: 1rem; right: 1.5rem;
+      font-family: var(--font-display); font-size: 5rem;
+      color: var(--rose-pale); line-height: 1;
+    }
+    .stars { color: var(--gold); font-size: .9rem; margin-bottom: .8rem; }
+    .testi-card p { font-size: .9rem; color: var(--mid); line-height: 1.75; font-style: italic; margin-bottom: 1.3rem; }
+    .testi-author { display: flex; align-items: center; gap: .8rem; }
+    .testi-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--rose-pale), var(--rose));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.1rem; color: #fff; font-weight: 600;
+    }
+    .testi-name { font-weight: 500; font-size: .88rem; }
+    .testi-city { font-size: .76rem; color: #aaa; }
+
+    /* ─── CTA BAND ─── */
+    .cta-band {
+      background: linear-gradient(135deg, var(--rose-dark) 0%, var(--rose) 60%, #e8818f 100%);
+      color: #fff; text-align: center; padding: 6rem 5%;
+      position: relative; overflow: hidden;
+    }
+    .cta-band::before {
+      content: '';
+      position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
+      width: 800px; height: 800px; border-radius: 50%;
+      background: rgba(255,255,255,.06);
+    }
+    .cta-band .section-label { color: rgba(255,255,255,.7); }
+    .cta-band .section-label::before { background: rgba(255,255,255,.7); }
+    .cta-band h2 { font-family: var(--font-display); font-size: clamp(2rem,4vw,3.5rem); font-weight: 300; margin-bottom: 1rem; }
+    .cta-band h2 em { font-style: italic; font-weight: 400; }
+    .cta-band p { opacity: .85; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.75; }
+    .cta-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      background: #fff; color: var(--rose-dark);
+      padding: .9rem 2.2rem; border-radius: 50px;
+      font-size: .88rem; font-weight: 600; text-decoration: none;
+      transition: transform .25s, box-shadow .3s;
+      box-shadow: 0 6px 24px rgba(0,0,0,.18);
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,.25); }
+    .btn-ghost { background: transparent; color: #fff; padding: .9rem 2rem; border: 1.5px solid rgba(255,255,255,.5); border-radius: 50px; font-size: .88rem; font-weight: 500; text-decoration: none; transition: border-color .3s, background .3s; }
+    .btn-ghost:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+    /* ─── CONTACT ─── */
+    .contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-info h3 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 1rem; }
+    .contact-info p { color: var(--mid); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.4rem; }
+    .contact-item .ci-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--rose-pale); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .contact-item .ci-text small { display: block; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--rose); margin-bottom: .2rem; }
+    .contact-item .ci-text span { font-size: .92rem; color: var(--dark); }
+    .social-row { display: flex; gap: .8rem; margin-top: 2rem; }
+    .social-btn {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: var(--rose-pale); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; text-decoration: none;
+      transition: background .3s, transform .2s;
+    }
+    .social-btn:hover { background: var(--rose); transform: translateY(-2px); }
+    .contact-form { background: #fff; border-radius: 24px; padding: 2.5rem; box-shadow: 0 8px 40px rgba(143,45,66,.1); }
+    .contact-form h4 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1.8rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { display: block; font-size: .78rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--mid); margin-bottom: .5rem; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: .8rem 1rem;
+      border: 1.5px solid #e8d5da; border-radius: 12px;
+      font-family: var(--font-body); font-size: .9rem; color: var(--dark);
+      background: var(--cream); outline: none;
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .form-group textarea { height: 110px; resize: none; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--rose); box-shadow: 0 0 0 3px rgba(200,82,106,.1);
+    }
+    .form-submit {
+      width: 100%; padding: 1rem;
+      background: linear-gradient(135deg, var(--rose), var(--rose-dark));
+      color: #fff; border: none; border-radius: 12px;
+      font-size: .9rem; font-weight: 500; letter-spacing: .04em;
+      cursor: pointer; transition: transform .25s, box-shadow .3s;
+      box-shadow: 0 4px 20px rgba(200,82,106,.3);
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,82,106,.4); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--dark); color: rgba(255,255,255,.5);
+      padding: 3rem 5%; text-align: center;
+      font-size: .82rem;
+    }
+    footer .footer-logo {
+      font-family: var(--font-display); font-size: 1.6rem; font-weight: 600;
+      color: #fff; margin-bottom: .6rem;
+    }
+    footer .footer-logo span { color: var(--gold); }
+    footer p { margin-bottom: .4rem; }
+    footer a { color: var(--rose); text-decoration: none; }
+
+    /* ─── SCROLL REVEAL ─── */
+    .reveal {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+    @keyframes fadeLeft { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:none} }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; padding-top: 6rem; text-align: center; }
+      .hero::before { width: 100vw; height: 100vw; top: 0; right: -20%; }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-visual { order: -1; }
+      .hero-img-wrap { width: min(300px, 70vw); }
+      .badge-floating { display: none; }
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .products-grid { grid-template-columns: repeat(2,1fr); } /* mantém 2x2 */
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 4%; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: var(--cream); padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0,0,0,.1);
+        gap: 1.4rem; z-index: 99;
+      }
+      .nav-links.open + .nav-cta { display: flex; }
+      section { padding: 4rem 6%; }
+      .products-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Cristina Piva<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#produtos">Produtos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5519998240301" class="nav-cta" target="_blank">Falar no WhatsApp</a>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Consultora Independente Mary Kay</p>
+    <h1 class="hero-title">
+      <em>Beleza</em> que
+      <strong>transforma vidas</strong>
+    </h1>
+    <p class="hero-sub">
+      Descubra produtos premium de cuidados com a pele e maquiagem com quem realmente entende de beleza. Atendimento personalizado, direto pra você.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5519998240301" class="btn-primary" target="_blank">💬 Quero ser consultada</a>
+      <a href="#produtos" class="btn-outline">Ver produtos</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><h3>+500</h3><p>Clientes felizes</p></div>
+      <div class="stat-item"><h3>4+</h3><p>Anos de experiência</p></div>
+      <div class="stat-item"><h3>100%</h3><p>Satisfação garantida</p></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-img-wrap">
+      <!-- Troque por uma <img> real: <img src="sua-foto.jpg" class="hero-avatar" alt="Isabella Martins"> -->
+      <img src="images/Cristina.png" class="hero-avatar" alt="Cristina Julio Piva">
+      <div class="badge-floating">
+        <span class="badge-icon">🌸</span>
+        <div class="badge-text"><strong>Consultora Oficial</strong>Mary Kay · desde 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Skin Care</span><span>Maquiagem</span><span>Perfumes</span><span>Cuidados Corporais</span>
+    <span>Mary Kay</span><span>Beleza & Bem-estar</span><span>Consultoria Gratuita</span><span>Entrega em Domicílio</span>
+    <span>Skin Care</span><span>Maquiagem</span><span>Perfumes</span><span>Cuidados Corporais</span>
+    <span>Mary Kay</span><span>Beleza & Bem-estar</span><span>Consultoria Gratuita</span><span>Entrega em Domicílio</span>
+  </div>
+</div>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="about reveal">
+    <div class="about-visual">
+      <div class="about-grid">
+        <div class="about-card">
+          <span class="card-num">01</span>
+          <h4>Consultoria Personalizada</h4>
+          <p>Análise completa do seu tipo de pele e rotina de beleza ideal, sem compromisso.</p>
+        </div>
+        <div class="about-card">
+          <span class="card-num">02</span>
+          <h4>Entrega em Casa</h4>
+          <p>Receba seus produtos com rapidez e conforto, direto na sua porta.</p>
+        </div>
+        <div class="about-card">
+          <span class="card-num">03</span>
+          <h4>Suporte Contínuo</h4>
+          <p>Sempre disponível para dúvidas e recomendações via WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-text">
+      <p class="section-label">Sobre mim</p>
+      <h2 class="section-title">Paixão por <em>beleza</em> e cuidado</h2>
+      <p>Olá! Sou Cristina Julio Piva, consultora independente Mary Kay há mais de 4 anos. Minha missão é ajudar cada cliente a descobrir o melhor de si através de produtos de alta qualidade e um atendimento verdadeiramente personalizado.</p>
+      <p>Acredito que beleza vai além da aparência — é sobre autoestima, autocuidado e bem-estar. Por isso, ofereço muito mais do que produtos: ofereço experiências transformadoras.</p>
+      <div class="signature">Cristina Piva</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="produtos">
+  <div class="products-header reveal">
+    <div>
+      <p class="section-label">Catálogo</p>
+      <h2 class="section-title">Produtos em <em>destaque</em></h2>
+    </div>
+    <a href="https://wa.me/5519998240301" class="btn-ghost" target="_blank">Ver catálogo completo →</a>
+  </div>
+  <div class="products-grid reveal">
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/ccream.webp" class="product-img" alt="CC Cream Mary Kay">
+      </div>
+      <div class="product-body">
+        <p class="product-tag">Skin Care</p>
+        <h3 class="product-name">CC Cream</h3>
+        <p class="product-desc">Proteção solar FPS 15, hidratação e cobertura leve em um único produto. Pele uniforme o dia todo.</p>
+        <div class="product-footer">
+          <span class="product-price">R$ 85,90</span>
+          <a href="https://wa.me/5519998240301" class="product-btn" target="_blank">Pedir →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/timewise.webp" class="product-img" alt="Kit TimeWise Dia">
+      </div>
+      <div class="product-body">
+        <p class="product-tag">Skin Care · Kit Dia</p>
+        <h3 class="product-name">Kit TimeWise Dia</h3>
+        <p class="product-desc">Loção Diurna com FPS 30 que hidrata, protege e combate os sinais do envelhecimento durante o dia.</p>
+        <div class="product-footer">
+          <span class="product-price">R$ 185,80</span>
+          <a href="https://wa.me/5519998240301" class="product-btn" target="_blank">Pedir →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/timewise.webp" class="product-img" alt="Kit TimeWise Noite">
+      </div>
+      <div class="product-body">
+        <p class="product-tag">Skin Care · Kit Noite</p>
+        <h3 class="product-name">Kit TimeWise Noite</h3>
+        <p class="product-desc">Gel de Recuperação Noturna que age enquanto você dorme, renovando e rejuvenescendo a pele.</p>
+        <div class="product-footer">
+          <span class="product-price">R$ 216,80</span>
+          <a href="https://wa.me/5519998240301" class="product-btn" target="_blank">Pedir →</a>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <img src="images/timewise base.webp" class="product-img" alt="TimeWise Base Mary Kay">
+      </div>
+      <div class="product-body">
+        <p class="product-tag">Maquiagem</p>
+        <h3 class="product-name">TimeWise Base</h3>
+        <p class="product-desc">Base líquida de longa duração com benefícios antienvelhecimento e acabamento impecável.</p>
+        <div class="product-footer">
+          <span class="product-price">R$ 65,90</span>
+          <a href="https://wa.me/5519998240301" class="product-btn" target="_blank">Pedir →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="reveal" style="max-width:600px">
+    <p class="section-label">Serviços</p>
+    <h2 class="section-title">Como posso <em>te ajudar</em></h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">🔬</div>
+      <h3>Análise de Pele</h3>
+      <p>Identifico seu tipo de pele e crio uma rotina personalizada de cuidados com produtos da linha Mary Kay.</p>
+      <a href="https://wa.me/5519998240301" class="service-link" target="_blank">Agendar →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💄</div>
+      <h3>Aula de Maquiagem</h3>
+      <p>Aprenda técnicas profissionais de aplicação para realçar sua beleza no dia a dia ou em ocasiões especiais.</p>
+      <a href="https://wa.me/5519998240301" class="service-link" target="_blank">Agendar →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎁</div>
+      <h3>Kits Presenteáveis</h3>
+      <p>Monte kits personalizados para presentear com muito estilo — ideal para aniversários, Dia das Mães e muito mais.</p>
+      <a href="https://wa.me/5519998240301" class="service-link" target="_blank">Montar kit →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🚚</div>
+      <h3>Entrega em Domicílio</h3>
+      <p>Receba seus produtos sem sair de casa. Entrega rápida e embalagem cuidadosa direto na sua porta.</p>
+      <a href="https://wa.me/5519998240301" class="service-link" target="_blank">Solicitar →</a>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="testimonials" id="depoimentos">
+  <div class="reveal" style="text-align:center">
+    <p class="section-label" style="justify-content:center">Depoimentos</p>
+    <h2 class="section-title">O que minhas <em>clientes</em> dizem</h2>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"A Cristina é incrível! Me ajudou a montar uma rotina de skin care do zero e minha pele nunca esteve tão bem. Super atenciosa e pontual nas entregas!"</p>
+      <div class="testi-author"><div class="testi-avatar">A</div><div><p class="testi-name">Ana Carla Silva</p><p class="testi-city">São Paulo, SP</p></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Fiz a aula de maquiagem e aprendi a me maquiar profissionalmente. Os produtos são de altíssima qualidade. Recomendo muito!"</p>
+      <div class="testi-author"><div class="testi-avatar">M</div><div><p class="testi-name">Mariana Costa</p><p class="testi-city">Campinas, SP</p></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p>"Compro com a Cristina há 3 anos. Atendimento sempre excelente, entrega rápida e ela sempre indica o produto certo para cada necessidade."</p>
+      <div class="testi-author"><div class="testi-avatar">P</div><div><p class="testi-name">Patrícia Ramos</p><p class="testi-city">Santos, SP</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band reveal">
+  <p class="section-label" style="justify-content:center">Oferta especial</p>
+  <h2>Ganhe uma <em>consultoria gratuita</em><br>de pele hoje mesmo</h2>
+  <p>Entre em contato pelo WhatsApp e descubra qual a rotina ideal para a sua pele. Sem custo, sem compromisso.</p>
+  <div class="cta-actions">
+  </div>
+</div>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="contact-wrap reveal">
+    <div class="contact-info">
+      <p class="section-label">Contato</p>
+      <h2 class="section-title">Vamos <em>conversar</em>?</h2>
+      <p>Estou aqui para tirar suas dúvidas, ajudar na escolha dos produtos e agendar sua consultoria. Fale comigo pelo canal que preferir!</p>
+      <div class="contact-item">
+        <div class="ci-icon">📱</div>
+        <div class="ci-text"><small>WhatsApp</small><span>(19) 99824-0301</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📧</div>
+        <div class="ci-text"><small>E-mail</small><span>cristina@marykay.com.br</span></div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-icon">📍</div>
+        <div class="ci-text"><small>Atendimento</small><span>Monte Sião e Região</span></div>
+      </div>
+      <div class="social-row">
+        <a href="https://www.instagram.com/cristinajuliopiva/" class="social-btn" title="Instagram" target="_blank">📸</a>
+        <a href="#" class="social-btn" title="Facebook">📘</a>
+        <a href="https://wa.me/5519998240301" class="social-btn" title="WhatsApp" target="_blank">💬</a>
+        <a href="#" class="social-btn" title="TikTok">🎵</a>
+      </div>
+    </div>
+    <div class="contact-form">
+  <h4>Envie uma mensagem 💌</h4>
+  <div class="form-row">
+    <div class="form-group">
+      <label>Nome</label>
+      <input type="text" id="nome" placeholder="Seu nome completo"/>
+    </div>
+    <div class="form-group">
+      <label>Telefone</label>
+      <input type="tel" id="telefone" placeholder="(19) 9 0000-0000"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label>E-mail</label>
+    <input type="email" id="email" placeholder="seu@email.com"/>
+  </div>
+  <div class="form-group">
+    <label>Interesse</label>
+    <select id="interesse">
+      <option value="">Selecione um serviço</option>
+      <option>Consultoria de pele</option>
+      <option>Aula de maquiagem</option>
+      <option>Catálogo de produtos</option>
+      <option>Kit presenteável</option>
+      <option>Outros</option>
+    </select>
+   </div>
+    <div class="form-group">
+     <label>Mensagem</label>
+    <textarea id="mensagem" placeholder="Como posso te ajudar?"></textarea>
+    </div>
+   <button class="form-submit" id="btn-enviar" onclick="sendForm()">
+    Enviar mensagem 💄
+    </button>
+   </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cristina<span>.</span></div>
+  <p>Consultora Independente Mary Kay · Monte Sião, MG</p>
+  <p style="margin-top:.4rem"><a href="https://wa.me/5519998240301" target="_blank">(11) 99999-9999</a> · cristina@marykay.com.br</p>
+  <p style="margin-top:1.5rem;font-size:.76rem">© 2025 Cristina Julio Piva · Todos os direitos reservados · <a href="#">Política de Privacidade</a></p>
+</footer>
+
+<script>
+  // NAV scroll shadow
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Hamburger
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+  // Fechar ao clicar em link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+  });
+
+  // Scroll Reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.transitionDelay = (i * 0.07) + 's';
+        e.target.classList.add('visible');
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Form send (demo)
+  function sendForm() {
+    const btn = document.querySelector('.form-submit');
+    btn.textContent = '✅ Mensagem enviada!';
+    btn.style.background = '#3a9e6f';
+    setTimeout(() => {
+      btn.textContent = 'Enviar mensagem 💄';
+      btn.style.background = '';
+    }, 3000);
+  }
+
+  // Smooth scroll para âncoras
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+
+  // No <script> do HTML
+ emailjs.init("6RR171POaW8MQ95cI");
+
+ function sendForm() {
+  const btn = document.getElementById("btn-enviar");
+  const nome      = document.getElementById("nome").value.trim();
+  const telefone  = document.getElementById("telefone").value.trim();
+  const email     = document.getElementById("email").value.trim();
+  const interesse = document.getElementById("interesse").value;
+  const mensagem  = document.getElementById("mensagem").value.trim();
+
+  if (!nome || !telefone || !email || !mensagem) {
+    btn.textContent = "⚠️ Preencha todos os campos!";
+    btn.style.background = "#e07b00";
+    setTimeout(() => { btn.textContent = "Enviar mensagem 💄"; btn.style.background = ""; }, 3000);
+    return;
+  }
+
+  btn.textContent = "⏳ Enviando...";
+  btn.disabled = true;
+  btn.style.background = "#888";
+
+  emailjs.send("service_ostyd1n", "template_hi1qd9h", {
+    nome,
+    telefone,
+    email,
+    interesse: interesse || "Não informado",
+    mensagem
+  })
+  .then(() => {
+    btn.textContent = "✅ Mensagem enviada!";
+    btn.style.background = "#3a9e6f";
+    btn.disabled = false;
+    ["nome","telefone","email","interesse","mensagem"].forEach(id => {
+      document.getElementById(id).value = "";
+    });
+    setTimeout(() => { btn.textContent = "Enviar mensagem 💄"; btn.style.background = ""; }, 4000);
+  })
+  .catch(err => {
+    console.error("Erro EmailJS:", err);
+    btn.textContent = "❌ Erro ao enviar. Tente novamente.";
+    btn.style.background = "#c0392b";
+    btn.disabled = false;
+    setTimeout(() => { btn.textContent = "Enviar mensagem 💄"; btn.style.background = ""; }, 4000);
+  });
+ }
+</script>
+</body>
+</html>
